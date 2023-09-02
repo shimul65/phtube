@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHero Tube</title>
+    <title>PH Tube</title>
     <link rel="shortcut icon" href="./logo.png" type="image/x-icon">
     <!-- Google Inter Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,6 @@
         }
     </style>
 </head>
-
 <body class="inter-font">
     <header class="container mx-auto border-b-2 py-6 md:py-12">
         <div class=" flex flex-col md:flex-row justify-between items-center  px-2 md:px-5 gap-4 md:gap-0 bg-base-100">
@@ -41,130 +40,15 @@
         </div>
     </header>
     <main class="container mx-auto">
+        <!-- All categories button -->
         <div id="btn-container" class="grid grid-cols-2 lg:grid-cols-4 justify-items-center  gap-6 w-1/2 py-5 md:py-10 mx-auto">
-            <!-- <button id="all-btn" onclick="handleAllButton()" class="btn btn-ghost bg-gray-300 normal-case text-lg px-5 w-full">All</button>
-            <button id="music-btn" onclick="handleMusicButton()" class="btn btn-ghost bg-gray-300 normal-case text-lg px-5 w-full">Music</button>
-            <button class="btn btn-ghost bg-gray-300 normal-case text-lg px-5 w-full">Comedy</button>
-            <button class="btn btn-ghost bg-gray-300 normal-case text-lg px-5 w-full">Drawing</button> -->
+
         </div>
+        <!-- Categories Items Container -->
         <section id="category-item-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-4 lg:p-0 justify-items-center">
-            <!-- <div onclick=""
-                class="card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg">
-                <figure class="w-full h-3/4 rounded-lg mt-3">
-                    <div class="relative">
-                        <img src="./Rectangle 1.png" alt="fruit" />
-                        <p class="text-xs text-white bg-[#171717] w-fit p-2 rounded-md absolute bottom-2 right-2">3hrs 56 min ago</p>
-                    </div>
-                </figure>
-                <div class="card-body flex flex-row  gap-3">
-                    <img class="w-10 h-10" src="./ellipse 1.svg" alt="">
-                    <div class="">
-                        <h2 class="card-title text-left text-lg font-bold">Building a Winning UX Strategy Using the
-                            Kano Model</h2>
-                        <div class="flex items-center gap-2 mt-2">
-                            <p class="text-xl text-left text-gray-700 max-w-fit">Awlad Hossain</p>
-                            <img class="w-5" src="./fi_10629607.svg" alt="verified">
-                        </div>
-                        <p class="text-left text-xl text-gray-600 mt-2">91K views</p>
-                    </div>
-                </div>
-            </div>
-            <div onclick=""
-                class="card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg">
-                <figure class="w-full  h-3/4 rounded-lg mt-3">
-                    <img src="./Rectangle 1.png" alt="fruit" />
-                </figure>
-                <div class="card-body flex flex-row  gap-3">
-                    <img class="w-10 h-10" src="./ellipse 1.svg" alt="">
-                    <div class="">
-                        <h2 class="card-title text-left text-lg font-bold">Building a Winning UX Strategy Using the
-                            Kano Model</h2>
-                        <div class="flex items-center gap-2 mt-2">
-                            <p class="text-xl text-left text-gray-700 max-w-fit">Awlad Hossain</p>
-                            <img class="w-5" src="./fi_10629607.svg" alt="verified">
-                        </div>
-                        <p class="text-left text-xl text-gray-600 mt-2">91K views</p>
-                    </div>
-                </div>
-
-            </div>
-            <div onclick=""
-                class="card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg">
-                <figure class="w-full  h-3/4 rounded-lg mt-3">
-                    <img src="./Rectangle 1.png" alt="fruit" />
-                </figure>
-                <div class="card-body flex flex-row  gap-3">
-                    <img class="w-10 h-10" src="./ellipse 1.svg" alt="">
-                    <div class="">
-                        <h2 class="card-title text-left text-lg font-bold">Building a Winning UX Strategy Using the
-                            Kano Model</h2>
-                        <div class="flex items-center gap-2 mt-2">
-                            <p class="text-xl text-left text-gray-700 max-w-fit">Awlad Hossain</p>
-                            <img class="w-5" src="./fi_10629607.svg" alt="verified">
-                        </div>
-                        <p class="text-left text-xl text-gray-600 mt-2">91K views</p>
-                    </div>
-                </div>
-
-            </div>
-            <div onclick=""
-                class="card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg">
-                <figure class="w-full  h-3/4 rounded-lg mt-3">
-                    <img src="./Rectangle 1.png" alt="fruit" />
-                </figure>
-                <div class="card-body flex flex-row  gap-3">
-                    <img class="w-10 h-10" src="./ellipse 1.svg" alt="">
-                    <div class="">
-                        <h2 class="card-title text-left text-lg font-bold">Building a Winning UX Strategy Using the
-                            Kano Model</h2>
-                        <div class="flex items-center gap-2 mt-2">
-                            <p class="text-xl text-left text-gray-700 max-w-fit">Awlad Hossain</p>
-                            <img class="w-5" src="./fi_10629607.svg" alt="verified">
-                        </div>
-                        <p class="text-left text-xl text-gray-600 mt-2">91K views</p>
-                    </div>
-                </div>
-
-            </div>
-            <div onclick=""
-                class="card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg">
-                <figure class="w-full  h-3/4 rounded-lg mt-3">
-                    <img src="./Rectangle 1.png" alt="fruit" />
-                </figure>
-                <div class="card-body flex flex-row  gap-3">
-                    <img class="w-10 h-10" src="./ellipse 1.svg" alt="">
-                    <div class="">
-                        <h2 class="card-title text-left text-lg font-bold">Building a Winning UX Strategy Using the
-                            Kano Model</h2>
-                        <div class="flex items-center gap-2 mt-2">
-                            <p class="text-xl text-left text-gray-700 max-w-fit">Awlad Hossain</p>
-                            <img class="w-5" src="./fi_10629607.svg" alt="verified">
-                        </div>
-                        <p class="text-left text-xl text-gray-600 mt-2">91K views</p>
-                    </div>
-                </div>
-
-            </div>
-            <div onclick=""
-                class="card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg">
-                <figure class="w-full  h-3/4 rounded-lg mt-3">
-                    <img src="./Rectangle 1.png" alt="fruit" />
-                </figure>
-                <div class="card-body flex flex-row  gap-3">
-                    <img class="w-10 h-10" src="./ellipse 1.svg" alt="">
-                    <div class="">
-                        <h2 class="card-title text-left text-lg font-bold">Building a Winning UX Strategy Using the
-                            Kano Model</h2>
-                        <div class="flex items-center gap-2 mt-2">
-                            <p class="text-xl text-left text-gray-700 max-w-fit">Awlad Hossain</p>
-                            <img class="w-5" src="./fi_10629607.svg" alt="verified">
-                        </div>
-                        <p class="text-left text-xl text-gray-600 mt-2">91K views</p>
-                    </div>
-                </div>
-
-            </div> -->
+            
         </section>
+        <!-- no Content Container -->
         <section id="no-content-container" class="hidden">
             <div class="flex py-10 lg:py-40 flex-col justify-center items-center gap-4">
                 <img src="./icon.png" alt="">
@@ -173,7 +57,6 @@
         </section>
     </main>
     <footer>
-
     </footer>
     <script src="script.js"></script>
 </body>

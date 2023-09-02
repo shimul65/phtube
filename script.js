@@ -1,4 +1,4 @@
-const handleCategory = async (categoryID) => {
+const handleCategory = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/categories`)
     const data = await res.json();
     const catagories = data.data;
@@ -12,10 +12,7 @@ const handleCategory = async (categoryID) => {
             <button id="category-btn" onclick="displayCategory('${category.category_id}')" class="btn btn-ghost bg-gray-300 normal-case text-lg px-5 w-full">${category.category}</button>
         `
         btnContainer.appendChild(div);
-        // displayCategory(categoryID);
     });
-    // displayCategory(categoryID);
-    // return catagories;
 }
 
 const displayCategory = async (categoryId = "1000") => {
@@ -30,7 +27,7 @@ const displayCategory = async (categoryId = "1000") => {
     const categoriesItems = data.data;
     const sortViewBtnContainer = document.getElementById('sort-view-btn');
     console.log(categoriesItems)
-    const jsonStringify = JSON.stringify(categoriesItems);
+    // const jsonStringify = JSON.stringify(categoriesItems);
     // console.log(jsonStringify);
     sortViewBtnContainer.innerHTML = `
             <button onclick="sortByView(${JSON.stringify(categoriesItems)})" class="btn btn-ghost bg-gray-300 normal-case text-xl">Sort by view</button>
@@ -47,9 +44,11 @@ const displayCategory = async (categoryId = "1000") => {
             const hrs = Math.floor(postedTime / 3600);
             const min = Math.floor((postedTime % 3600) / 60);
             const displayPostedTime = !postedTime === false ? `<p class="text-xs text-white bg-[#171717] w-fit p-2 rounded-md absolute bottom-2 right-2">${hrs > 24 ? `${Math.floor(hrs / 24)} days ${hrs % 24} hrs 0 min` : `${hrs} hrs ${min} min`} ago</p>` : '';
+
             // verified symbol
             const verified = categoriesItem.authors[0].verified;
             const verifiedImg = verified === true ? '<img class="w-5" src="./fi_10629607.svg" alt="verified">' : '';
+
             // item div
             const itemDiv = document.createElement('div');
             itemDiv.classList = `card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg`;
@@ -91,7 +90,3 @@ const sortByView = (categoriesItems) => {
 
 handleCategory();
 displayCategory();
-
-// const allCategory = async () => {
-//     handleCategory();
-// }
