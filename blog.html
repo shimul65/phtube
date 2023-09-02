@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <!-- Google Inter Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- tailwind & daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="container flex flex-col gap-5 mx-auto min-h-[200px] py-10">
+    <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" checked="checked" />
+        <div class="collapse-title text-xl font-medium">
+            Discuss the scope of var, let, and const
+        </div>
+        <div class="collapse-content">
+            <p>hello</p>
+        </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">
+            Tell us the use cases of null and undefined
+        </div>
+        <div class="collapse-content">
+            <p>--> Null is an object in JavaScript and represents primitive data types. A null value in JavaScript is used for referring absence of any object value and if any function or variable returns null, then we can infer that the object could not be created and the undefined property indicates that a variable has not been assigned a value, or not declared at all.</p>
+        </div>
+    </div>
+    <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">
+            What do you mean by REST API?
+        </div>
+        <div class="collapse-content">
+            <p>--> REST stands for REpresentational State Transfer. REST APIs make the communication process with the server easier for us by giving us various HTTP request methods like GET, POST, PATCH/PUT , DELETE. These methods provided by REST allow us perform CRUD operations easily </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,10 +1,9 @@
 const handleCategory = async (categoryID) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/categories`)
     const data = await res.json();
-    const btnContainer = document.getElementById('btn-container');
-
     const catagories = data.data;
-    // console.log(catagories)
+
+    const btnContainer = document.getElementById('btn-container');
 
     catagories.forEach(category => {
         const div = document.createElement('div');
@@ -25,14 +24,22 @@ const displayCategory = async (categoryId = "1000") => {
 
     const categoryItemContainer = document.getElementById('category-item-container');
     const noContentContainer = document.getElementById('no-content-container');
+
     categoryItemContainer.textContent = '';
 
     const categoriesItems = data.data;
-    console.log(categoriesItems.length);
+    const sortViewBtnContainer = document.getElementById('sort-view-btn');
+    console.log(categoriesItems)
+    const jsonStringify = JSON.stringify(categoriesItems);
+    // console.log(jsonStringify);
+    sortViewBtnContainer.innerHTML = `
+            <button onclick="sortByView(${JSON.stringify(categoriesItems)})" class="btn btn-ghost bg-gray-300 normal-case text-xl">Sort by view</button>
+        `
     if (categoriesItems.length === 0) {
         noContentContainer.classList.remove('hidden');
     }
     else {
+        // sortByView(categoriesItems);
         noContentContainer.classList.add('hidden');
         categoriesItems.forEach(categoriesItem => {
             // posted time
@@ -61,7 +68,7 @@ const displayCategory = async (categoryId = "1000") => {
                  <p class="text-xl text-left text-gray-700 max-w-fit">${categoriesItem?.authors[0]?.profile_name}</p>
                 <div>${verifiedImg}</div>
             </div>
-            <p class="text-left text-xl text-gray-600 mt-2">${categoriesItem.others.views} views</p>
+            <p class="text-left text-xl text-gray-600 mt-2">${categoriesItem?.others?.views} views</p>
                     </div>
         </div>
         `
@@ -71,8 +78,14 @@ const displayCategory = async (categoryId = "1000") => {
     }
 }
 
-const sortByView = ()  => {
-    // displayCategory(categoryId);
+const sortByView = (categoriesItems) => {
+    console.log(JSON.parse(categoriesItems));
+    // for (categoriesItem of categoriesItems) {
+    //     const viewsNumber = parseFloat(categoriesItem.others.views) * 1000;
+    //     categoriesItem.others.views = viewsNumber;
+    // };
+    // categoriesItems.sort((a, b) => b.others.views - a.others.views);
+    // return categoriesItems;
 }
 
 
