@@ -121,7 +121,7 @@ const sortbyView = () => {
              <p class="text-xl text-left text-gray-700 max-w-fit">${categoriesItem?.authors[0]?.profile_name}</p>
             <div>${verifiedImg}</div>
         </div>
-        <p class="text-left text-xl text-gray-600 mt-2">${categoriesItem?.others?.views} views</p>
+        <p class="text-left text-xl text-gray-600 mt-2">${categoriesItem?.others?.views ? (categoriesItem?.others?.views)/1000 : 0 }K views</p>
                 </div>
     </div>
     `
