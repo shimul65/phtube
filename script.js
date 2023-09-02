@@ -1,3 +1,7 @@
+// global variable
+let currentData = [];
+
+// handle category
 const handleCategory = async () => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/categories`)
     const data = await res.json();
@@ -15,9 +19,11 @@ const handleCategory = async () => {
     });
 }
 
+// display category
 const displayCategory = async (categoryId = "1000") => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
     const data = await res.json();
+    currentData = data.data;
 
     const categoryItemContainer = document.getElementById('category-item-container');
     const noContentContainer = document.getElementById('no-content-container');
@@ -26,11 +32,11 @@ const displayCategory = async (categoryId = "1000") => {
 
     const categoriesItems = data.data;
     const sortViewBtnContainer = document.getElementById('sort-view-btn');
-    console.log(categoriesItems)
+    console.log(categoriesItems);
     // const jsonStringify = JSON.stringify(categoriesItems);
     // console.log(jsonStringify);
     sortViewBtnContainer.innerHTML = `
-            <button onclick="sortByView(${JSON.stringify(categoriesItems)})" class="btn btn-ghost bg-gray-300 normal-case text-xl">Sort by view</button>
+            <button onclick="sortbyView()" class="btn btn-ghost bg-gray-300 normal-case text-xl">Sort by view</button>
         `
     if (categoriesItems.length === 0) {
         noContentContainer.classList.remove('hidden');
@@ -77,14 +83,51 @@ const displayCategory = async (categoryId = "1000") => {
     }
 }
 
-const sortByView = (categoriesItems) => {
-    console.log(JSON.parse(categoriesItems));
-    // for (categoriesItem of categoriesItems) {
-    //     const viewsNumber = parseFloat(categoriesItem.others.views) * 1000;
-    //     categoriesItem.others.views = viewsNumber;
-    // };
-    // categoriesItems.sort((a, b) => b.others.views - a.others.views);
-    // return categoriesItems;
+// handle sort by view btn
+const sortbyView = () => {
+    const categoryItemContainer = document.getElementById('category-item-container');
+    categoryItemContainer.textContent = '';
+    for (categoriesItem of currentData) {
+        const viewsNumber = parseFloat(categoriesItem.others.views) * 1000;
+        categoriesItem.others.views = viewsNumber;
+    };
+    let result = currentData.sort((a, b) => b.others.views - a.others.views);
+    result.forEach(categoriesItem => {
+        // posted time
+        const postedTime = categoriesItem.others.posted_date;
+        const hrs = Math.floor(postedTime / 3600);
+        const min = Math.floor((postedTime % 3600) / 60);
+        const displayPostedTime = !postedTime === false ? `<p class="text-xs text-white bg-[#171717] w-fit p-2 rounded-md absolute bottom-2 right-2">${hrs > 24 ? `${Math.floor(hrs / 24)} days ${hrs % 24} hrs 0 min` : `${hrs} hrs ${min} min`} ago</p>` : '';
+
+        // verified symbol
+        const verified = categoriesItem.authors[0].verified;
+        const verifiedImg = verified === true ? '<img class="w-5" src="./fi_10629607.svg" alt="verified">' : '';
+
+        // item div
+        const itemDiv = document.createElement('div');
+        itemDiv.classList = `card border  duration-300 cursor-pointer hover:scale-105 md:w-fit w-full bg-base-100  rounded-lg`;
+        itemDiv.innerHTML = `
+    <figure class="w-full h-3/4 rounded-lg mt-3">
+        <div class="relative w-full h-full">
+             <img class=" w-full h-full" src="${categoriesItem?.thumbnail}" alt="thumbnail" />
+            <div>${displayPostedTime}</div>
+        </div>
+    </figure>
+    <div class="card-body flex flex-row  gap-3">
+            <img class="w-10 h-10 rounded-full" src="${categoriesItem?.authors[0]?.profile_picture}" alt="authors">
+    <div class="">
+            <h2 class="card-title text-left text-lg font-bold">${categoriesItem?.title}</h2>
+        <div class="flex items-center gap-2 mt-2">
+             <p class="text-xl text-left text-gray-700 max-w-fit">${categoriesItem?.authors[0]?.profile_name}</p>
+            <div>${verifiedImg}</div>
+        </div>
+        <p class="text-left text-xl text-gray-600 mt-2">${categoriesItem?.others?.views} views</p>
+                </div>
+    </div>
+    `
+        categoryItemContainer.appendChild(itemDiv);
+
+    });
 }
 
 handleCategory();
