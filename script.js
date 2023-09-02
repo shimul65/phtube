@@ -87,6 +87,5 @@ const sortByView = (categoriesItems) => {
     // return categoriesItems;
 }
 
-
 handleCategory();
 displayCategory();
