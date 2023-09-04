@@ -24,6 +24,7 @@
         }
     </style>
 </head>
+
 <body class="inter-font">
     <header class="container mx-auto border-b-2 py-6 md:py-12">
         <div class=" flex flex-col md:flex-row justify-between items-center  px-2 md:px-5 gap-4 md:gap-0 bg-base-100">
@@ -32,21 +33,25 @@
             </div>
             <!-- sort view button -->
             <div id="sort-view-btn" class="md:mr-24">
-
+                <button onclick="sortbyView()" class="btn btn-ghost bg-gray-300 normal-case text-xl">Sort by
+                    view</button>
             </div>
             <div class="">
-                <a href="blog.html" target="_blank"><button class="btn btn-ghost bg-red-500 text-white">Blog</button></a>
+                <a href="blog.html" target="_blank"><button
+                        class="btn btn-ghost bg-red-500 text-white">Blog</button></a>
             </div>
         </div>
     </header>
     <main class="container mx-auto">
         <!-- All categories button -->
-        <div id="btn-container" class="grid grid-cols-2 lg:grid-cols-4 justify-items-center  gap-6 w-1/2 py-5 md:py-10 mx-auto">
+        <div id="btn-container"
+            class="grid grid-cols-2 lg:grid-cols-4 justify-items-center  gap-6 w-1/2 py-5 md:py-10 mx-auto">
 
         </div>
         <!-- Categories Items Container -->
-        <section id="category-item-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-4 lg:p-0 justify-items-center">
-            
+        <section id="category-item-container"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 p-4 lg:p-0 justify-items-center">
+
         </section>
         <!-- no Content Container -->
         <section id="no-content-container" class="hidden">
