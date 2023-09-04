@@ -31,13 +31,7 @@ const displayCategory = async (categoryId = "1000") => {
     categoryItemContainer.textContent = '';
 
     const categoriesItems = data.data;
-    const sortViewBtnContainer = document.getElementById('sort-view-btn');
-    console.log(categoriesItems);
-    // const jsonStringify = JSON.stringify(categoriesItems);
-    // console.log(jsonStringify);
-    sortViewBtnContainer.innerHTML = `
-            <button onclick="sortbyView()" class="btn btn-ghost bg-gray-300 normal-case text-xl">Sort by view</button>
-        `
+
     if (categoriesItems.length === 0) {
         noContentContainer.classList.remove('hidden');
     }
@@ -92,7 +86,10 @@ const sortbyView = () => {
         categoriesItem.others.views = viewsNumber;
     };
     let result = currentData.sort((a, b) => b.others.views - a.others.views);
+    // console.log(result);
     result.forEach(categoriesItem => {
+        const viewsNumber2 = categoriesItem.others.views / 1000 + 'K';
+        categoriesItem.others.views = viewsNumber2;
         // posted time
         const postedTime = categoriesItem.others.posted_date;
         const hrs = Math.floor(postedTime / 3600);
@@ -121,7 +118,7 @@ const sortbyView = () => {
              <p class="text-xl text-left text-gray-700 max-w-fit">${categoriesItem?.authors[0]?.profile_name}</p>
             <div>${verifiedImg}</div>
         </div>
-        <p class="text-left text-xl text-gray-600 mt-2">${categoriesItem?.others?.views ? (categoriesItem?.others?.views)/1000 : 0 }K views</p>
+        <p class="text-left text-xl text-gray-600 mt-2">${categoriesItem?.others?.views} views</p>
                 </div>
     </div>
     `
@@ -129,6 +126,7 @@ const sortbyView = () => {
 
     });
 }
+
 
 handleCategory();
 displayCategory();
